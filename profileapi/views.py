@@ -26,7 +26,20 @@ class HelloApiVIew(APIView):
             age=serializer.validated_data.get("age")
             message = f"hello {name, age}"
             return Response({'message' : message})
+
         else:
             return Response(serializer.errors,
             status = status.HTTP_400_BAD_REQUEST
             )
+
+    def put(self, request, pk=None):
+        """Handling update an object"""
+        return Response({'method':'PUT'})
+
+    def patch(self, request, pk=None):
+        """Handling partial update of an object """
+        return Response({'method' : 'PATCH'})
+
+    def delete(self, request,pk=None):
+        """Delete an Object """
+        return Response({'method' : 'DELETE'})
